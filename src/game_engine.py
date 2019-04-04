@@ -3,6 +3,8 @@
 from random import randint
 """
 Game Engine class
+
+class with all stuf to create the game
 """
 
 class GameEngine(object):

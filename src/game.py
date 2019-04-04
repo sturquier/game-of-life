@@ -3,6 +3,8 @@
 from game_engine import GameEngine
 """
 Game class
+
+class in order to show and play the game
 """
 
 class Game(object):
