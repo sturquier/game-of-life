@@ -35,4 +35,5 @@ class GameEngine(object):
         return grid
 
     def display_grid(self):
-        return self.grid
+        for row in self.grid:
+            print(row)

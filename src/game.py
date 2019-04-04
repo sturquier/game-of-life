@@ -14,8 +14,8 @@ class Game(object):
 
     def init_game(self):
         print('Welcome to Game of Life !')
-        rows_number = int(input('How many rows for your grid ?'))
-        columns_number = int(input('How many columns for your grid ?'))
+        rows_number = int(input('How many rows for your grid ? '))
+        columns_number = int(input('How many columns for your grid ? '))
 
         new_game_engine = GameEngine(rows_number, columns_number)
-        print(new_game_engine.display_grid())
+        new_game_engine.display_grid()
