@@ -10,8 +10,6 @@ class with all stuf to create the game
 class GameEngine(object):
 
     grid = []
-    rows = 30
-    columns = 30
 
     def __init__(self, rows, columns):
         self.grid = self.init_grid(rows, columns)
