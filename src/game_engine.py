@@ -41,8 +41,28 @@ class GameEngine(object):
         """
         Display grid
         """
-        for row in self.grid:
-            print(row)
+        # for row in self.grid:
+        #     print(row)
+        print(f"prev grid {self.grid}")
+
+    def update_grid(self):
+        """
+        Update the grid by create a new one with the next value
+
+        Return
+        ------
+        grid - list
+        """
+        next_grid = []
+        for i,row in enumerate(self.grid):
+            next_row = []
+            for col in row:
+                self.get_neighbourhood(i,row)
+                # TODO : update value
+                self.grid[i][col] = 0
+                next_row.append(self.grid[i][col])
+            next_grid.append(next_row)
+        print(next_grid)
 
     def get_neighbourhood(self, row, column):
         """
@@ -57,4 +77,5 @@ class GameEngine(object):
         ------
         neighbours - int
         """
-        pass
+        # print(row)
+        # print(column)
