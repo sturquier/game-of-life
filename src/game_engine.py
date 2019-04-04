@@ -10,9 +10,13 @@ class with all stuf to create the game
 class GameEngine(object):
 
     grid = []
+    rows = 0
+    columns = 0
 
     def __init__(self, rows, columns):
         self.grid = self.init_grid(rows, columns)
+        self.rows = rows
+        self.columns = columns
 
     def init_grid(self, rows, columns):
         """
@@ -41,9 +45,9 @@ class GameEngine(object):
         """
         Display grid
         """
-        # for row in self.grid:
-        #     print(row)
-        print(f"prev grid {self.grid}")
+        for row in self.grid:
+            print(row)
+        # print(f"prev grid {self.grid}")
 
     def update_grid(self):
         """
@@ -54,19 +58,23 @@ class GameEngine(object):
         grid - list
         """
         next_grid = []
-        for i,row in enumerate(self.grid):
+        for i, row in enumerate(self.grid):
             next_row = []
             for col in row:
-                self.get_neighbourhood(i,row)
-                # TODO : update value
-                self.grid[i][col] = 0
+                living_neighbours = self.get_living_neighbourhood(i, col)
+                if self.grid[i][col] is 1 and living_neighbours is 2 or living_neighbours is 3:
+                    self.grid[i][col] = 1
+                elif self.grid[i][col] is 0 and living_neighbours == 3:
+                    self.grid[i][col] = 1
+                else:
+                    self.grid[i][col] = 0
                 next_row.append(self.grid[i][col])
             next_grid.append(next_row)
-        print(next_grid)
+        self.grid = next_grid
 
-    def get_neighbourhood(self, row, column):
+    def get_living_neighbourhood(self, row, column):
         """
-        Display neighbour cells count of a specific cell
+        Display neighbour living cells count of a specific cell
 
         Args
         ----
@@ -77,5 +85,11 @@ class GameEngine(object):
         ------
         neighbours - int
         """
-        # print(row)
-        # print(column)
+        neighbours = 0
+        for i in range(-1, 2):
+            for j in range(-1, 2):
+                # Check all cells except current cell
+                if i is not 0 and j is not 0:
+                    neighbours += self.grid[(row + i) % self.rows][(column + j) % self.columns]
+        # print(f" N = {neighbours}")
+        return neighbours
