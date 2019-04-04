@@ -9,7 +9,7 @@ class in order to show and play the game
 
 class Game(object):
 
-    rounds_number = 0
+    rounds_number = 1
 
     def __init__(self):
         self.play_game()
