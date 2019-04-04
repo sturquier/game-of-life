@@ -24,10 +24,9 @@ class Game(object):
             print(e)
         else:
             game_engine = GameEngine(rows_input, columns_input)
-            # game_engine.display_grid()
 
             while self.rounds_number <= rounds_input:
-                game_engine.display_grid()
+                print(game_engine)
                 game_engine.update_grid()
                 print('\n\n')
                 self.rounds_number += 1

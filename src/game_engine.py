@@ -41,13 +41,11 @@ class GameEngine(object):
 
         return grid
 
-    def display_grid(self):
+    def __str__(self):
         """
-        Display grid
+        Display grid line by line
         """
-        for row in self.grid:
-            print(row)
-        # print(f"prev grid {self.grid}")
+        return "\n".join(map(str, self.grid))
 
     def update_grid(self):
         """
