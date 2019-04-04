@@ -9,16 +9,23 @@ class in order to show and play the game
 
 class Game(object):
 
-    def __init__(self):
-        self.init_game()
+    rounds_number = 0
 
-    def init_game(self):
+    def __init__(self):
+        self.play_game()
+
+    def play_game(self):
         print('Welcome to Game of Life !')
         try:
-            rows_number = int(input('How many rows for your grid ? '))
-            columns_number = int(input('How many columns for your grid ? '))
+            rows_input = int(input('How many rows for your grid ? '))
+            columns_input = int(input('How many columns for your grid ? '))
+            rounds_input = int(input('How many rounds for your game ?'))
         except Exception as e:
             print(e)
         else:
-            new_game_engine = GameEngine(rows_number, columns_number)
-            new_game_engine.display_grid()
+            game_engine = GameEngine(rows_input, columns_input)
+
+        while self.rounds_number <= rounds_input:
+            game_engine.display_grid()
+            print('\n\n')
+            self.rounds_number += 1

@@ -18,9 +18,14 @@ class GameEngine(object):
         """
         Initialize grid
 
-        :param rows - int - number of rows
-        :param colums - int - number of colums
-        :return grid - int[][] - grid of cells
+        Args
+        ----
+        rows - int - number of rows
+        colums - int - number of colums
+
+        Return
+        ------
+        grid - int[][] - grid of cells
         """
 
         grid = []
@@ -33,5 +38,23 @@ class GameEngine(object):
         return grid
 
     def display_grid(self):
+        """
+        Display grid
+        """
         for row in self.grid:
             print(row)
+
+    def get_neighbourhood(self, row, column):
+        """
+        Display neighbour cells count of a specific cell
+
+        Args
+        ----
+        row - int - row of a specific cell
+        column - int - column of a specific cell
+
+        Return
+        ------
+        neighbours - int
+        """
+        pass
